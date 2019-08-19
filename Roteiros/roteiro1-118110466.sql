@@ -1,31 +1,29 @@
 -- Criando tabelas
 CREATE TABLE AUTOMOVEL (     
 	numero_do_chassi CHAR(17),
-	marca VARCHAR(12),
-	documento_do_carro
+	modelo VARCHAR(12),
+	documento_do_carro CHAR(9),
 	ano INTEGER
 );
 
 CREATE TABLE SEGURADO (     
-	cpf VARCHAR(14), -- Formato: xxx.xxx.xxx-xx
-	nome VARCHAR(20)
-	telefone
-	chassi
-	
-	
+	cpf_segurado VARCHAR(14), --Formato: xxx.xxx.xxx-xx
+	nome_segurado VARCHAR(20),
+	telefone_segurado VARCHAR(12), --Formato: +xxxxxxxxxxx
+	numero_do_chassi CHAR(17)
 );
 
 CREATE TABLE PERITO (
-	id CHAR(16),    -- cpf
+	cpf_perito CHAR(14), --Formato: xxx.xxx.xxx-xx
 	nome VARCHAR(20)
 	tel
 );
 
 CREATE TABLE OFICINA (     
-	cnpj VARCHAR(18), -- Formato: xx.xxx.xxx/xxxx-xx
-	nome VARCHAR(20)
-	chassi
-	endereço
+	cnpj VARCHAR(18), --Formato: xx.xxx.xxx/xxxx-xx
+	nome VARCHAR(20),
+	endereco VARCHAR(20), --Formato: nome-da-rua, numero
+	numero_do_chassi CHAR(17)
 	
 );
  

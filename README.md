@@ -3,7 +3,6 @@ Scripts and mini tests of the discipline of Database I.
 
 
 # CREATE TABLE
-
 ```
 CREATE TABLE name_table(
   attribute_name1 attribute_type1
@@ -11,6 +10,17 @@ CREATE TABLE name_table(
   attribute_name3 attribute_type3
 );
 ```
+Types:
+* INTEGER
+* SERIAL -> auto increment integer
+* CHAR(LENGTH) -> fixed size character chair
+* VARCHAR(LENGTH) -> variable size character chair
+* TEXT -> unlimited length character chair
+* BOOLEAN -> true / false
+* NUMERIC -> general representation for floating point numbers
+* DATE -> 'YYYY-MM-DD'
+* TIMESTAMP -> date/time 'YYYY-MM-DD 14:05:06'
+
 
 # DROP TABLE 
 ```DROP TABLE name_table;```
@@ -31,3 +41,4 @@ CREATE TABLE name_table(
 **Adding Primary and Secondary Keys:**
 * ```ALTER TABLE name_table ADD CONSTRAINT name_constraint FOREIGN KEY(attribute) REFERENCES other_table(attribute)```
 * ```ALTER TABLE name_table ADD PRIMARY KEY(attribute)```
+

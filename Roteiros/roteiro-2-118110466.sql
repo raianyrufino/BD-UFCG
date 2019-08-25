@@ -87,7 +87,25 @@ UPDATE tarefas SET prioridade = '5' WHERE prioriedade = '32766';
 -- Realizacao do UPDATE antes da adicao de restricao
 ALTER TABLE tarefas ADD CONSTRAINT validaPrioridade CHECK(prioridade >= 0 AND prioridade <= 5);
 
+-- Question 8 -- 
+CREATE TABLE funcionario(
+	cpf CHAR(11) PRIMARY KEY,
+	data_nasc DATE NOT NULL, 
+	nome VARCHAR(20) NOT NULL,
+	funcao TEXT NOT NULL, 
+	nivel CHAR(1), 
+	superior_cpf CHAR(11) REFERENCES funcionario(cpf)
+);
 
+ALTER TABLE funcionario ALTER COLUMN nivel SET NOT NULL;
+ALTER TABLE funcionario ADD CONSTRAINT checkFuncao CHECK (funcao = 'LIMPEZA' OR funcao = 'SUP_LIMPEZA');
+ALTER TABLE funcionario ADD CONSTRAINT validaNivel CHECK(nivel = 'J' OR nivel = 'P' OR nivel = 'S');
+ALTER TABLE funcionario ADD CONSTRAINT checkSuperior CHECK (funcao = 'LIMPEZA' AND superior_cpf IS NOT NULL OR (funcao = 'SUP_LIMPEZA' AND superior_cpf IS NULL));
 
+INSERT INTO funcionario VALUES('12345678911', '1980-05-07', 'Pedro da Silva', 'SUP_LIMPEZA', 'S', null);
+INSERT INTO funcionario VALUES('12345678912', '1980-03-08', 'Jose da Silva', 'LIMPEZA', 'J', '12345678911');
 
+INSERT INTO funcionario VALUES('12345678912', '1980-04-09', 'joao da Silva', 'LIMPEZA', 'J', null); -- Testando insercao que nao deve funcionar
+
+-- Question 9 -- 
 

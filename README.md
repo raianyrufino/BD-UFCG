@@ -26,7 +26,7 @@ ALTER TABLE name_table ADD COLUMN name_attribute attribute_type1
 ALTER TABLE name_table ALTER COLUMN name_attribute SET NOT NULL
 ALTER TABLE name_table ALTER COLUMN name_attribute DROP NOT NULL
 
-**Adding Primary and Secondary Keys:**
+**Adding Primary and Secondary Keys**
 ALTER TABLE name_table ADD CONSTRAINT name_constraint FOREIGN KEY(attribute) REFERENCES other_table(attribute)
 ALTER TABLE name_table ADD PRIMARY KEY(attribute)
 

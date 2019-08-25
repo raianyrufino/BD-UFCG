@@ -108,4 +108,17 @@ INSERT INTO funcionario VALUES('12345678912', '1980-03-08', 'Jose da Silva', 'LI
 INSERT INTO funcionario VALUES('12345678912', '1980-04-09', 'joao da Silva', 'LIMPEZA', 'J', null); -- Testando insercao que nao deve funcionar
 
 -- Question 9 -- 
+INSERT INTO funcionario VALUES ('12345678913', '1972-04-15','Diego Ribeiro', 'SUP_LIMPEZA', 'P', null);
+INSERT INTO funcionario VALUES ('12345678914', '1972-03-25','Brener Quevedo', 'LIMPEZA', 'J', '12345678913');
+INSERT INTO funcionario VALUES ('12345678915', '1972-03-27','Paulo Mateus', 'SUP_LIMPEZA', 'S', null);
+INSERT INTO funcionario VALUES ('12345678916', '1972-01-08','Iago Tito', 'LIMPEZA', 'P', '12345678915');
+INSERT INTO funcionario VALUES ('12345678917', '1972-01-01','Thiago Dantas', 'LIMPEZA', 'J', '12345678916');
+INSERT INTO funcionario VALUES ('12345678918', '1972-01-31','Raquel Rufino', 'LIMPEZA', 'P', '12345678917');
+INSERT INTO funcionario VALUES ('12345678919', '1972-01-10','Alana Gabriele', 'SUP_LIMPEZA', 'S', null);
+INSERT INTO funcionario VALUES ('12345678920', '1972-01-08','Matheus Henrique', 'SUP_LIMPEZA', 'P', null);
+INSERT INTO funcionario VALUES ('12345678921', '1972-01-08','Marli Silva', 'LIMPEZA', 'S', '12345678920');
+INSERT INTO funcionario VALUES ('12345678922', '1972-01-08','Julia Vitoria', 'SUP_LIMPEZA', 'P', null);
+
+-- Question 10 -- 
+
 

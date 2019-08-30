@@ -53,7 +53,7 @@ CREATE TABLE Entregas(
 	id_cliente SERIAL REFERENCES Clientes(id_cliente), 
 	
 	-- Entregas sao realizadas apenas para clientes cadastrados
-	cliente_endereco CONSTRAINT validaEntrega CHECK (cliente_endereco = 'residencia' OR cliente_endereco = 'trabalho' OR cliente_endereco = 'outro'),
+	cliente_endereco CONSTRAINT validaEntrega CHECK (cliente_endereco = 'R' OR cliente_endereco = 'T' OR cliente_endereco = 'O'),
 );
 
 CREATE TABLE Clientes(

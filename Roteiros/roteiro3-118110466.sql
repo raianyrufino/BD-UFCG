@@ -31,15 +31,27 @@ CREATE TABLE Enderecos(
 
 CREATE TABLE Medicamentos(
 	id_medicamento SERIAL,
-	caracteristica VARCHAR(20) CONSTRAINT validaCaracteristica CHECK(caracteristica in ('venda exclusiva com receita')) -- medicamentos podem ter uma caracteristica: venda exclusiva com receit
+	caracteristica VARCHAR(20) CONSTRAINT validaCaracteristica CHECK(caracteristica in ('venda exclusiva com receita')), -- Medicamentos podem ter uma caracteristica: venda exclusiva com receit
 	nome_medicamento VARCHAR(20)
 );
 
-CREATE TABLE Vendas();
+CREATE TABLE Vendas(
+	id_venda SERIAL NOT NULL,
+	id_cliente SERIAL NOT NULL,
+	id_funcionario SERIAL NOT NULL, 
+	id_medicamento SERIAL NOT NULL,
+	outras_vendas CONSTRAINT id_venda unique(id_venda),
+	
+	venda_vinculada ADD FOREIGN KEY(id_funcionario) references Funcionarios(id_funcionario) -- Nao deve ser possivel remover funcionarios que estejam vinculados a uma venda
+	medicamento_vinculado ADD FOREIGN KEY(id_medicamento) references Medicamentos(id_medicamento) -- Nao deve ser possivel remover medicamentos que estejam vinculados a uma venda
+
+);
 
 CREATE TABLE Entregas(
-	id_cliente SERIAL REFERENCES Clientes(id_cliente), -- Entregas sao realizadas apenas para clientes cadastrados
+	id_cliente SERIAL REFERENCES Clientes(id_cliente), 
 	
+	-- Entregas sao realizadas apenas para clientes cadastrados
+	cliente_endereco CONSTRAINT validaEntrega CHECK (cliente_endereco = 'residencia' OR cliente_endereco = 'trabalho' OR cliente_endereco = 'outro'),
 );
 
 CREATE TABLE Clientes(

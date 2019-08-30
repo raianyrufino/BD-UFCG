@@ -1,15 +1,16 @@
 CREATE TABLE Farmacia(
 	CNPJ CHAR(18) NOT NULL PRIMARY KEY, -- Formato: XXX.XXX.XXX/XXXX-XX
-	categoria VARCHAR(10) CONSTRAINT validaCategoria CHECK(categoria = 'S' or categoria = 'F'), -- Uma farmacia pode ser sede ou filial
-	
+	categoria VARCHAR(10) CONSTRAINT validaCategoria CHECK(categoria = 'S' OR categoria = 'F'),
+
 	nome VARCHAR(20),
-	bairro VARCHAR(20),
+	bairro VARCHAR(20) CONSTRAINT bairro_unico UNIQUE(bairro), -- So pode haver uma farmacia por bairro
 	cidade VARCHAR(20),
 	estado VARCHAR(20),
 	
 	-- Cada famarcia tem apenas um gerente que eh funcionario
 	gerente VARCHAR(20) NOT NULL, 
 	id_gerente CHAR(14) NOT NULL REFERENCES Funcionarios(id_funcionario) -- Formato: XXX.XXX.XXX-XX
+	
 );
 
 CREATE TABLE Funcionarios(
@@ -44,6 +45,7 @@ CREATE TABLE Vendas(
 	
 	venda_vinculada ADD FOREIGN KEY(id_funcionario) references Funcionarios(id_funcionario) -- Nao deve ser possivel remover funcionarios que estejam vinculados a uma venda
 	medicamento_vinculado ADD FOREIGN KEY(id_medicamento) references Medicamentos(id_medicamento) -- Nao deve ser possivel remover medicamentos que estejam vinculados a uma venda
+	
 
 );
 
@@ -58,4 +60,7 @@ CREATE TABLE Clientes(
 	id_cliente SERIAL,
 	endereco 
 );
+
+-- Uma farmacia pode ser sede ou filial 
+ALTER TABLE FARMACIA ADD CONSTRAINT validaSede EXCLUDE USING gist (tipo WITH =) WHERE (tipo = 'S');
 

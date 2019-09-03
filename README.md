@@ -3,9 +3,9 @@ Scripts and mini tests of the discipline of Database I.
 
 ## VM and DBMS access
 VM access works on both cmd and terminal:
-`` `shell
+```shell
 ssh -o ServerAliveInterval = 30 user@150.165.85.37 -p 45600
-`` `
+```
 
 Explicit database access:
 `` `shell

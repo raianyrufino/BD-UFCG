@@ -19,7 +19,7 @@ scp -P 45600 yourPathFilePath@150.165.85.37: / home / yourUser
 
 # CREATE TABLE
 `` `
-CREATE TABLE name_table (
+CREATE TABLE table_name (
   attribute_name1 attribute_type1
   attribute_name2 attribute_type2
   attribute_name3 attribute_type3
@@ -38,41 +38,41 @@ Types:
 
 
 # DROP TABLE
-`` `DROP TABLE name_table;` ``
+`` `DROP TABLE table_name;` ``
   
 # ALTER TABLE
 
 ** Rename: **
-* `` `ALTER TABLE current_name_table RENAME TO new_name_table```
-* `` `ALTER TABLE name_table RENAME COLUMN current_attribute_name1 TO new_attribute_name1````
+* `` `ALTER TABLE current_table_name RENAME TO new_table_name```
+* `` `ALTER TABLE table_name RENAME COLUMN current_attribute_name1 TO new_attribute_name1````
 
 ** Add a new attribute: **
-* `` `ALTER TABLE name_table ADD COLUMN name_attribute attribute_type1```
+* `` `ALTER TABLE name_table ADD COLUMN attribute_name attribute_type1```
 
 ** Change attributes to null or not null: **
-* `` `ALTER TABLE name_table ALTER COLUMN name_attribute SET NOT NULL```
-* `` `ALTER TABLE name_table ALTER COLUMN name_attribute DROP NOT NULL```
+* `` `ALTER TABLE table_name ALTER COLUMN attribute_name SET NOT NULL```
+* `` `ALTER TABLE table_name ALTER COLUMN attribute_name DROP NOT NULL```
 
 ** Adding Primary and Secondary Keys: **
-* `` `ALTER TABLE name_table ADD CONSTRAINT name_constraint FOREIGN KEY (attribute) REFERENCES other_table (attribute)` ``
-* `` `ALTER TABLE name_table ADD PRIMARY KEY (attribute)` ``
+* `` `ALTER TABLE table_name ADD CONSTRAINT constraint_name FOREIGN KEY (attribute) REFERENCES other_table (attribute)` ``
+* `` `ALTER TABLE table_name ADD PRIMARY KEY (attribute)` ``
 
 ## SQL / DLL + DML
 DML, acronym for Data Manipulation Language. This contains the set of instructions for adding, modifying, querying, or removing data from a database.
 
 INSERT:
-`` `INSERT INTO name_table VALUES (value_attribute1, value_attribute2, value_attribute3);
+`` `INSERT INTO table_name VALUES (attribute_value1, attribute_value2, attribute_value3);
 
 --defining which columns will be filled:
-INSERT INTO name_table (name_attribute, name_attribute2) VALUES (name_attribute1, name_attribute2);
+INSERT INTO table_name (attribute_name1, attribute_name2) VALUES (attribute_name1, attribute_name2);
 
 - insertion of several tones:
-INSERT INTO name_table (name_attribute1, name_attribute2)
-VALUES
-  (value_attribute1, value_attribute2),
-  (value_attribute1, value_attribute2),
-  (value_attribute1, value_attribute2);
-`` `
+
+* ```INSERT INTO table_name (attribute_name1, attribute_name2);```
+* ``` VALUES
+  (attribute_value1, attribute_value2),
+  (attribute_value1, attribute_value2),
+  (attribute_value1, attribute_value2); ` ``
 
 ## Data Query
  
@@ -81,13 +81,11 @@ VALUES
 
 ## Data Removal
 
-`` `
 - remove all tuples:
-DELETE FROM table_name;
+* ```DELETE FROM table_name;```
 
 - removal of tuples that make up the condition:
-DELETE FROM tasks WHERE status = "DONE";
-`` `
+* ```DELETE FROM tasks WHERE status = "DONE";`` `
 
 ## Data update
 
@@ -100,44 +98,24 @@ DELETE FROM tasks WHERE status = "DONE";
 
 ## CHECK Constraints Constraints
 
-`` `sql
-CREATE TABLE Product (
-  integer_product_id,
-  numeric price,
-  CHECK (price> 0)
-);
-
-CREATE TABLE Product (
-  integer_product_id,
-  numeric price,
-  CONSTRAINT price_validochk CHECK (price> 0)
-);
 `` `
-* `` `ALTER TABLE product ADD CONSTRAINT valid_chk_product CHECK (price> 0);` ``
+CREATE TABLE table_name (
+  INTEGER product_id,
+  NUMERIC price,
+  CONSTRAINT price_validochk CHECK (price> 0)
+); 
+` ``
+
+* ```ALTER TABLE product ADD CONSTRAINT valid_chk_product CHECK (price> 0);```
 
 ## UNIQUE
 UNIQUE guarantees that there will be no equal values ​​in the same column.
 
-Examples:
 `` `sql
-CREATE TABLE person (
+CREATE TABLE table_name (
   cpf integer,
   name varchar (50) UNIQUE,
   date_nasc date
-);
-
-CREATE TABLE person (
-  cpf integer,
-  name varchar (50),
-  date_nasc date,
-  UNIQUE (name)
-);
-
-CREATE TABLE person (
-  to integrate,
-  b integer,
-  c integer,
-  UNIQUE (a, c)
 );
 `` `
 
@@ -145,16 +123,15 @@ CREATE TABLE person (
 
 EXCLUDE creates generalized exceptions, accessing all tuples in the table.
 
-Example:
-`` `sql
 - Example, do not allow two rentals for the same vehicle (same vehicle id in a rental table) if the rental periods intersect each other.
 
 - checks the vehicle_id with the "=" operator and the lease period (of the time interval type) with the "&&" intersection operator.
 
-ALTER TABLE location
-ADD CONSTRAINT locacao_excl
+```
+ALTER TABLE table_name
+ADD CONSTRAINT constraint_name
 EXCLUDE USING gist (
   vehicle_ID WITH =,
   WITH && period
 );
-`` `
+```

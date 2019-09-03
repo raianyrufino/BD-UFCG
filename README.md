@@ -43,19 +43,19 @@ Types:
 # ALTER TABLE
 
 ** Rename: **
-* `` `ALTER TABLE current_table_name RENAME TO new_table_name```
-* `` `ALTER TABLE table_name RENAME COLUMN current_attribute_name1 TO new_attribute_name1````
+`` `ALTER TABLE current_table_name RENAME TO new_table_name` ``
+`` `ALTER TABLE table_name RENAME COLUMN current_attribute_name1 TO new_attribute_name1` ``
 
 ** Add a new attribute: **
-* `` `ALTER TABLE name_table ADD COLUMN attribute_name attribute_type1```
+`` `ALTER TABLE name_table ADD COLUMN attribute_name attribute_type1` ``
 
 ** Change attributes to null or not null: **
-* `` `ALTER TABLE table_name ALTER COLUMN attribute_name SET NOT NULL```
-* `` `ALTER TABLE table_name ALTER COLUMN attribute_name DROP NOT NULL```
+`` `ALTER TABLE table_name ALTER COLUMN attribute_name SET NOT NULL```
+```ALTER TABLE table_name ALTER COLUMN attribute_name DROP NOT NULL` ``
 
 ** Adding Primary and Secondary Keys: **
-* `` `ALTER TABLE table_name ADD CONSTRAINT constraint_name FOREIGN KEY (attribute) REFERENCES other_table (attribute)` ``
-* `` `ALTER TABLE table_name ADD PRIMARY KEY (attribute)` ``
+`` `ALTER TABLE table_name ADD CONSTRAINT constraint_name FOREIGN KEY (attribute) REFERENCES other_table (attribute)` ``
+`` `ALTER TABLE table_name ADD PRIMARY KEY (attribute)` ``
 
 ## SQL / DLL + DML
 DML, acronym for Data Manipulation Language. This contains the set of instructions for adding, modifying, querying, or removing data from a database.

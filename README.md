@@ -24,7 +24,7 @@ CREATE TABLE table_name (
   attribute_name2 attribute_type2
   attribute_name3 attribute_type3
 );
-`` `
+` ``
 Types:
 * INTEGER
 * SERIAL -> auto increment integer
@@ -61,39 +61,41 @@ Types:
 DML, acronym for Data Manipulation Language. This contains the set of instructions for adding, modifying, querying, or removing data from a database.
 
 INSERT:
-`` `INSERT INTO table_name VALUES (attribute_value1, attribute_value2, attribute_value3);
+`` `INSERT INTO table_name VALUES (attribute_value1, attribute_value2, attribute_value3); ` ``
 
 --defining which columns will be filled:
-INSERT INTO table_name (attribute_name1, attribute_name2) VALUES (attribute_name1, attribute_name2);
+`` `INSERT INTO table_name (attribute_name1, attribute_name2) VALUES (attribute_name1, attribute_name2); ` ``
 
 - insertion of several tones:
 
-* ```INSERT INTO table_name (attribute_name1, attribute_name2);```
-* ``` VALUES
+`` `INSERT INTO table_name (attribute_name1, attribute_name2); ` ``
+`` ` 
+   VALUES
   (attribute_value1, attribute_value2),
   (attribute_value1, attribute_value2),
-  (attribute_value1, attribute_value2); ` ``
+  (attribute_value1, attribute_value2); 
+  ` ``
 
 ## Data Query
  
-* `` `sql SELECT attributeName1, attributeName2 FROM table_name WHERE selection_condition;` ``
-* `` `SELECT name, address FROM employee WHERE salary> 1500;` ``
+`` `sql SELECT attributeName1, attributeName2 FROM table_name WHERE selection_condition;` ``
+`` `SELECT name, address FROM employee WHERE salary> 1500;` ``
 
 ## Data Removal
 
 - remove all tuples:
-* ```DELETE FROM table_name;```
+```DELETE FROM table_name;```
 
 - removal of tuples that make up the condition:
-* ```DELETE FROM tasks WHERE status = "DONE";`` `
+```DELETE FROM tasks WHERE status = "DONE";```
 
 ## Data update
 
-* `` `UPDATE table_name SET attribute_name = attribute_value WHERE condition;` ``
+`` `UPDATE table_name SET attribute_name = attribute_value WHERE condition;` ``
 
-* `` `UPDATE employee SET phone = '8888-9999' WHERE cpf = '123456789011';` ``
+`` `UPDATE employee SET phone = '8888-9999' WHERE cpf = '123456789011';` ``
 
-* `` `UPDATE employee SET salary = salary + 200, bonus = bonus + 100 WHERE town_lotacao = 'Campina Grande' AND ultima_evaluation = 'GREAT';` ``
+`` `UPDATE employee SET salary = salary + 200, bonus = bonus + 100 WHERE town_lotacao = 'Campina Grande' AND ultima_evaluation = 'GREAT';` ``
 
 
 ## CHECK Constraints Constraints

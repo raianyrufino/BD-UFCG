@@ -108,7 +108,7 @@ CREATE TABLE table_name (
 ); 
 ` ``
 
-* ```ALTER TABLE product ADD CONSTRAINT valid_chk_product CHECK (price> 0);```
+```ALTER TABLE product ADD CONSTRAINT valid_chk_product CHECK (price> 0);```
 
 ## UNIQUE
 UNIQUE guarantees that there will be no equal values ​​in the same column.

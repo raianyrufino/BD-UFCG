@@ -63,7 +63,7 @@ DML, acronym for Data Manipulation Language. This contains the set of instructio
 INSERT:
 ```INSERT INTO table_name VALUES (attribute_value1, attribute_value2, attribute_value3); ```
 
---defining which columns will be filled:
+- defining which columns will be filled:
 ```INSERT INTO table_name (attribute_name1, attribute_name2) VALUES (attribute_name1, attribute_name2); ```
 
 - insertion of several tones:

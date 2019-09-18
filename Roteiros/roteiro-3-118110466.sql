@@ -121,7 +121,7 @@ ALTER TABLE VENDAS ADD CONSTRAINT validaFuncionarioVendedor CHECK(id_funcionario
 -- e adicione um mecanismo para restringir os possíveis valores a serem inseridos nesta coluna:
 -- um dos 9 estados do nordeste
 
-CREATE TYPE mood AS ENUM ('PB', 'RN', 'PE', 'CE', 'BA', 'MA', 'PI', 'AL', 'SE');
-ALTER TABLE FARMACIA ADD COLUMN estado NOT mood;
+CREATE TYPE mood AS ENUM ('AC', 'AP', 'AM', 'DF', 'ES', 'GO', 'MT', 'MS', 'MG', 'PA', 'PR', 'RS', 'RJ', 'RO', 'RR', 'SC', 'SP', 'TO');
+ALTER TABLE FARMACIA ADD COLUMN estado mood;
 
 

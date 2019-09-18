@@ -71,7 +71,8 @@ WHERE d.dnumber = p.pnumber;
 SELECT p.pname, e.fname
 FROM project AS p, department d, employee AS e
 WHERE p.dnum = d.dnumber AND
-	  e.fname = d.mgrssn;
+	  e.fname = d.mgrssn AND
+	  p.pnumber > 30;
 	  
 --Q17 Retornar os projetos(nome) e os funcionários que trabalham neles(primeiro nome)
 SELECT p.pname, e.fname

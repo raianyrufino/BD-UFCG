@@ -24,17 +24,17 @@ WHERE e.sex = 'M';
 --Q8 Retornar os nomes dos funcionários homens que não possuem supervisor
 SELECT e.fname
 FROM employee AS e
-WHERE e.sex = 'M' AND e.superssn is null;
+WHERE e.sex = 'M' AND e.superssn IS NULL;
 
 --Q9 Retornar os nomes dos funcionários(primeiro) e o nome(primeiro) do seu supervisor, apenas
 -- para os funcionário que possuem supervisor
-SELECT e.fname, w.fname
-FROM employee AS e, works_on AS w
-WHERE e.superssn = w.essn;
+SELECT e.fname, s.fname
+FROM employee AS e, employee AS s
+WHERE e.superssn = s.essn;
 
 --Q10 Retornar os nomes(primeiro) dos funcionários supervisionados 
 SELECT e.fname
-FROM employee AS e, employee s
+FROM employee AS e, employee AS s
 WHERE e.ssn = s.superssn AND
 	  s.fname = 'Franklin';
 
@@ -44,10 +44,14 @@ FROM department AS d, dept_locations AS l
 WHERE d.dnumber = l.dnumber;
 
 --Q12 Retornar os nomes dos departamentos localizados em cidades que começam com a letra 'S'
+SELECT d.dname
+FROM department AS d, dept_locations AS l
+WHERE d.dnumber = l.dnumber AND
+l.dlocation LIKE 'S%';
 
 --Q13 Retornar os nomes(primeiro e último) dos funcionários e seus dependentes(apenas para os funcionários que possuem dependentes)
 SELECT e.fname, e.lname, d.dependent_name
-FROM employee AS e, dependent d
+FROM employee AS e, dependent AS d
 WHERE e.ssn = d.essn;
 
 --Q14 Retornar o nome completo dos funcionários que possuem salário maior do que 50 mil. A relação do retorno deve ter apenas
@@ -59,13 +63,13 @@ WHERE e.salary > 50000;
 
 --Q15 Retornar os projetos(nome) e os departamentos responsáveis(nome)
 SELECT p.pname, d.dname
-FROM project As p, department As d
+FROM project AS p, department AS d
 WHERE d.dnumber = p.pnumber;
 
 --Q16 Retornar os projetos(nome) e os gerentes dos departamentos responsáveis(primeiro nome). Retornar resultados apenas
 -- para os projetos com código maior do que 30.
 SELECT p.pname, e.fname
-FROM project As p, department d, employee As e
+FROM project AS p, department d, employee AS e
 WHERE p.dnum = d.dnumber AND
 	  e.fname = d.mgrssn;
 	  
@@ -73,7 +77,7 @@ WHERE p.dnum = d.dnumber AND
 SELECT p.pname, e.fname
 FROM project AS p, employee AS e, works_on AS w
 WHERE p.pnumber = w.pno AND
-e.ssn = w.essn;
+	  e.ssn = w.essn;
 
 --Q18 Retornar os nomes dos dependentes dos funcionáros que trabalham no projeto 91.
 -- Retornar também o nome(pprimeiro) do funcionário e o relacionamento entre eles.

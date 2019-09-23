@@ -1,0 +1,1 @@
+-- Recuperar os primeiros nomes dos funcionários que trabalham em projeto(s) e cujo salário não seja nem o maior nem o menor da empresa.

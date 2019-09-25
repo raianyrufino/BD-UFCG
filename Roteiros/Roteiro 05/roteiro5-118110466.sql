@@ -16,3 +16,5 @@ SELECT s.fname AS fname_supervisor, COUNT(*) AS qtd_supervisionados FROM employe
 -- 05 Faça uma consulta equivalente à anterior, porém considerando os funcionários que não possuem supervisor.
 
 SELECT S.fname AS nome_supervisor, COUNT(*) AS qtd_supervisionados FROM employee AS S JOIN employee AS E ON E.superssn = S.ssn GROUP BY S.fname ORDER BY qtd_supervisionados ASC;
+
+-- 06

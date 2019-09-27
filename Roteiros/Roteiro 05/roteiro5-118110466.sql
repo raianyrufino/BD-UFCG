@@ -44,7 +44,7 @@ GROUP BY
 ORDER BY
     COUNT(*);
 
--- 06
+-- 06 Retornar a quantidade de funcionários que trabalham no(s) projeto(s) que contém menos funcionários.
 
 SELECT
     MIN(qtd) AS qtd_empregados

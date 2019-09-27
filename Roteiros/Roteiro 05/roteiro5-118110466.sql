@@ -101,7 +101,7 @@ WHERE
 GROUP BY
     pno;
     
---10 Observe que o projeto 92 tem a maior média salarial.Fazer 
+-- 10 Observe que o projeto 92 tem a maior média salarial.Fazer 
 --uma consulta para retornar os funcionários que não trabalham neste projeto, mas que possuam salário maior
 -- do que todos os funcionários que trabalham neste projeto.
 SELECT
@@ -129,7 +129,8 @@ WHERE
             w.essn = e.ssn
             AND w.pno = 92
     );
---QUESTAO 11 Retornar a quantidade de projetos por funcionário, ordenando pela quantidade.
+    
+-- 11 Retornar a quantidade de projetos por funcionário, ordenando pela quantidade.
 SELECT
     e.ssn,
     COUNT(w.essn) AS qtd_proj

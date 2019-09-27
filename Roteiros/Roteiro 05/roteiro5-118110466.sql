@@ -1,4 +1,4 @@
--- 01 Retornar quantas funcionárias estão cadastradas
+-- 01 Retornar quantas funcionárias estão cadastradas.
 SELECT COUNT(*) FROM employee WHERE sex = 'f';
 
 -- 02 Retornar a média de salário dos funcionários homens que moram no estado do Texas
@@ -43,7 +43,6 @@ ORDER BY
     COUNT(*);
 
 -- 06 Retornar a quantidade de funcionários que trabalham no(s) projeto(s) que contém menos funcionários.
-
 SELECT
     MIN(qtd) AS qtd_empregados
 FROM

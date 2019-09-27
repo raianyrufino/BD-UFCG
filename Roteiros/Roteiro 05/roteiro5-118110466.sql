@@ -30,7 +30,6 @@ GROUP BY
 ORDER BY
     COUNT(*);
 
-
 -- 05 Faça uma consulta equivalente à anterior, porém considerando os funcionários que não possuem supervisor.
 SELECT
     s.fname AS nome_supervisor,

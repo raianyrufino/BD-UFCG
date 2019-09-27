@@ -78,7 +78,7 @@ HAVING COUNT(essn) = (
     ) as qtds);       
 
 
---QUESTAO 8--
+--QUESTAO 8 Retornar a média salarial por projeto.
 SELECT
     w.pno AS num_proj,
     AVG(e.salary)

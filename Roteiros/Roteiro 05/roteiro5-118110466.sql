@@ -85,6 +85,7 @@ WHERE
     e.ssn = w.essn
 GROUP BY
     pno;
+    
 -- 09 Alterar a consultar anterior para retornar também os nomes dos projetos.
 SELECT
     w.pno AS proj_num,

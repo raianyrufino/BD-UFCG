@@ -59,7 +59,7 @@ FROM
     ) as qtds;
 
 
---QUESTAO 7--
+-- 07 Faça uma consulta equivalente à anterior, porém, retorne também o número do projeto. 
 SELECT pno AS proj,
        COUNT(essn) AS qtd
 FROM works_on

@@ -32,7 +32,6 @@ ORDER BY
 
 
 -- 05 Faça uma consulta equivalente à anterior, porém considerando os funcionários que não possuem supervisor.
-
 SELECT
     s.fname AS nome_supervisor,
     COUNT(*) AS qtd_supervisionados

@@ -131,7 +131,7 @@ WHERE
             w.essn = e.ssn
             AND w.pno = 92
     );
---QUESTAO 11--
+--QUESTAO 11 Retornar a quantidade de projetos por funcionário, ordenando pela quantidade.
 SELECT
     e.ssn,
     COUNT(w.essn) AS qtd_proj
